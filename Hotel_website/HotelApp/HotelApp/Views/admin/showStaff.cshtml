@@ -1,0 +1,80 @@
+﻿@model IEnumerable<HotelApp.Models.Staffs>
+
+@{
+    ViewBag.Title = "showStaff";
+}
+<style>
+    body {
+        background-color: #E8E8E8;
+    }
+</style>
+<h2>Show Staffs</h2>
+
+<p>
+    @Html.ActionLink("Back to the options", "loggedIn")
+    <br />
+    @Html.ActionLink("Add new", "addStaff")
+    <br />
+    @Html.ActionLink("Delete another one", "deleteStaff")
+    <br />
+    @Html.ActionLink("Edit another one", "editStaff")
+</p>
+<table class="table table-hover table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.staffID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.staffName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.salary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Departments.deptName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+           @Html.DisplayFor(modelItem => item.staffID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.staffName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.salary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Departments.deptName)
+        </td>
+    </tr>
+}
+
+</table>

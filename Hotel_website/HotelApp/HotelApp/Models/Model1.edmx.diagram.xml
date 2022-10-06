@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="810ac9b7f02448afabfcc9cad6f45dc9" Name="Diagram1">
+        <EntityTypeShape EntityType="HotelModel.Admins" Width="1.5" PointX="8" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelModel.Bookings" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelModel.Departments" Width="1.5" PointX="5.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelModel.Fedbacks" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelModel.Gusets" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelModel.Rooms" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelModel.Staffs" Width="1.5" PointX="8" PointY="8" IsExpanded="true" />
+        <AssociationConnector Association="HotelModel.FK_dbo_Admins_dbo_Departments_adminID" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelModel.FK_dbo_Bookings_dbo_Gusets_gusID" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelModel.FK_dbo_Staffs_dbo_Departments_department_deptID" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelModel.FK_dbo_Fedbacks_dbo_Gusets_gusID" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelModel.FK_dbo_Rooms_dbo_Gusets_gusID" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

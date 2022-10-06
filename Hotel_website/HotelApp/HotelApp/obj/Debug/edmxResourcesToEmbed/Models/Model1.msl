@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HotelModelStoreContainer" CdmEntityContainer="HotelEntities7">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="HotelModel.Admins">
+        <MappingFragment StoreEntitySet="Admins">
+          <ScalarProperty Name="adminID" ColumnName="adminID" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="passward" ColumnName="passward" />
+          <ScalarProperty Name="confirmPassword" ColumnName="confirmPassword" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bookings">
+      <EntityTypeMapping TypeName="HotelModel.Bookings">
+        <MappingFragment StoreEntitySet="Bookings">
+          <ScalarProperty Name="confirmPay" ColumnName="confirmPay" />
+          <ScalarProperty Name="bookID" ColumnName="bookID" />
+          <ScalarProperty Name="smoking" ColumnName="smoking" />
+          <ScalarProperty Name="petFriendly" ColumnName="petFriendly" />
+          <ScalarProperty Name="checkIn" ColumnName="checkIn" />
+          <ScalarProperty Name="checkOut" ColumnName="checkOut" />
+          <ScalarProperty Name="roomType" ColumnName="roomType" />
+          <ScalarProperty Name="numberOfBed" ColumnName="numberOfBed" />
+          <ScalarProperty Name="gusID" ColumnName="gusID" />
+          <ScalarProperty Name="reserve" ColumnName="reserve" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="HotelModel.Departments">
+        <MappingFragment StoreEntitySet="Departments">
+          <ScalarProperty Name="deptID" ColumnName="deptID" />
+          <ScalarProperty Name="deptName" ColumnName="deptName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fedbacks">
+      <EntityTypeMapping TypeName="HotelModel.Fedbacks">
+        <MappingFragment StoreEntitySet="Fedbacks">
+          <ScalarProperty Name="roomNum" ColumnName="roomNum" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="gusID" ColumnName="gusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gusets">
+      <EntityTypeMapping TypeName="HotelModel.Gusets">
+        <MappingFragment StoreEntitySet="Gusets">
+          <ScalarProperty Name="gusID" ColumnName="gusID" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="gusName" ColumnName="gusName" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="SSN" ColumnName="SSN" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="confirmPassword" ColumnName="confirmPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rooms">
+      <EntityTypeMapping TypeName="HotelModel.Rooms">
+        <MappingFragment StoreEntitySet="Rooms">
+          <ScalarProperty Name="roomNum" ColumnName="roomNum" />
+          <ScalarProperty Name="floorNum" ColumnName="floorNum" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="numberOfBed" ColumnName="numberOfBed" />
+          <ScalarProperty Name="roomType" ColumnName="roomType" />
+          <ScalarProperty Name="smoking" ColumnName="smoking" />
+          <ScalarProperty Name="petFriendly" ColumnName="petFriendly" />
+          <ScalarProperty Name="gusID" ColumnName="gusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Staffs">
+      <EntityTypeMapping TypeName="HotelModel.Staffs">
+        <MappingFragment StoreEntitySet="Staffs">
+          <ScalarProperty Name="staffID" ColumnName="staffID" />
+          <ScalarProperty Name="staffName" ColumnName="staffName" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="salary" ColumnName="salary" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="deptID" ColumnName="deptID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

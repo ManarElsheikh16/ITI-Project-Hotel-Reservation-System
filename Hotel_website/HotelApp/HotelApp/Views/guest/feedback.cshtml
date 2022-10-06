@@ -1,0 +1,84 @@
+﻿@model HotelApp.Models.Fedbacks
+
+@{
+    ViewBag.Title = "feedback";
+}
+
+<style>
+    body {
+        background-color: #E8E8E8;
+    }
+</style>
+<h2>make a feedback</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @if (ViewBag.message != null)
+        {
+            <div class="form-group">
+                <div class="col-md-10">
+                    @ViewBag.message
+                </div>
+            </div>
+        }
+        <div class="form-group">
+            @Html.LabelFor(model => model.rating, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+           
+                @Html.DropDownListFor(model=>model.rating,new List<SelectListItem>{
+
+                       new SelectListItem {Value="1",Text="very bad" },
+                       new SelectListItem {Value="2",Text="good" },
+                       new SelectListItem {Value="3",Text="very good" },
+                       new SelectListItem {Value="4",Text="superior" },
+                       new SelectListItem {Value="5",Text="excellent" }, },new { @class="form-control"})
+                @Html.ValidationMessageFor(model => model.rating, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.comment, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model=>model.comment,  htmlAttributes : new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.comment, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.date, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.date, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.gusID, "gusID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("gusID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.gusID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="send" class="btn btn-info" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to the options", "loggedIn")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

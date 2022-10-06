@@ -1,0 +1,81 @@
+﻿@model IEnumerable<HotelApp.Models.Rooms>
+
+@{
+    ViewBag.Title = "showRoom";
+}
+<style>
+    body {
+        background-color: #E8E8E8;
+    }
+</style>
+<h2>Show Rooms</h2>
+
+<p>
+
+    @Html.ActionLink("Back to the options", "loggedIn")
+    <br />
+    @Html.ActionLink("Add new", "addRoom")
+    <br />
+    @Html.ActionLink("Delete another one", "deleteRoom")
+    <br />
+    @Html.ActionLink("Edit another one", "editRoom")
+</p>
+<table class="table table-hover table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.roomNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.floorNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numberOfBed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.roomType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.smoking)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.petFriendly)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gusets.gusName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.roomNum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.floorNum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numberOfBed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.roomType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.smoking)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.petFriendly)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gusets.gusName)
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B5D2A00E-34E8-4CEC-8BC9-AFCCC32687BF}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Hotel</RootNamespace>
+    <AssemblyName>Hotel</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Migrations\202010100509261_zamzam.cs" />
+    <Compile Include="Migrations\202010100509261_zamzam.designer.cs">
+      <DependentUpon>202010100509261_zamzam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010102239256_zamalek.cs" />
+    <Compile Include="Migrations\202010102239256_zamalek.designer.cs">
+      <DependentUpon>202010102239256_zamalek.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010102329270_deda.cs" />
+    <Compile Include="Migrations\202010102329270_deda.designer.cs">
+      <DependentUpon>202010102329270_deda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010111031335_mano.cs" />
+    <Compile Include="Migrations\202010111031335_mano.designer.cs">
+      <DependentUpon>202010111031335_mano.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010111037590_koko.cs" />
+    <Compile Include="Migrations\202010111037590_koko.designer.cs">
+      <DependentUpon>202010111037590_koko.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010111647403_salwa.cs" />
+    <Compile Include="Migrations\202010111647403_salwa.designer.cs">
+      <DependentUpon>202010111647403_salwa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010112043386_saso.cs" />
+    <Compile Include="Migrations\202010112043386_saso.designer.cs">
+      <DependentUpon>202010112043386_saso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010121457252_wow.cs" />
+    <Compile Include="Migrations\202010121457252_wow.designer.cs">
+      <DependentUpon>202010121457252_wow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\Booking.cs" />
+    <Compile Include="Models\DataContext.cs" />
+    <Compile Include="Models\Department.cs" />
+    <Compile Include="Models\Fedback.cs" />
+    <Compile Include="Models\Guset.cs" />
+    <Compile Include="Models\Room.cs" />
+    <Compile Include="Models\Staff.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202010100509261_zamzam.resx">
+      <DependentUpon>202010100509261_zamzam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010102239256_zamalek.resx">
+      <DependentUpon>202010102239256_zamalek.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010102329270_deda.resx">
+      <DependentUpon>202010102329270_deda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010111031335_mano.resx">
+      <DependentUpon>202010111031335_mano.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010111037590_koko.resx">
+      <DependentUpon>202010111037590_koko.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010111647403_salwa.resx">
+      <DependentUpon>202010111647403_salwa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010112043386_saso.resx">
+      <DependentUpon>202010112043386_saso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010121457252_wow.resx">
+      <DependentUpon>202010121457252_wow.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

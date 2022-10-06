@@ -1,0 +1,43 @@
+﻿@model IEnumerable<HotelApp.Models.Departments>
+
+@{
+    ViewBag.Title = "showDept";
+}
+<style>
+    body {
+        background-color: #E8E8E8;
+    }
+</style>
+<h2>Show Departments</h2>
+
+<p>
+    @Html.ActionLink("Back to the options", "loggedIn")
+    <br />
+    @Html.ActionLink("Add new", "addDept")
+    <br />
+    @Html.ActionLink("Delete another one", "deleteDept")
+    <br />
+    @Html.ActionLink("Edit another one", "editDept")
+</p>
+<table class="table table-hover table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.deptName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.deptID)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.deptName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.deptID)
+        </td>
+    </tr>
+}
+
+</table>

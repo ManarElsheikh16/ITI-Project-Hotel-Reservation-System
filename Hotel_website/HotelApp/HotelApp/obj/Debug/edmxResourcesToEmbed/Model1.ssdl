@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HotelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admins">
+    <Key>
+      <PropertyRef Name="adminID" />
+    </Key>
+    <Property Name="adminID" Type="int" Nullable="false" />
+    <Property Name="userName" Type="nvarchar(max)" />
+    <Property Name="passward" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Bookings">
+    <Key>
+      <PropertyRef Name="bookID" />
+    </Key>
+    <Property Name="bookID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="smoking" Type="bit" Nullable="false" />
+    <Property Name="petFriendly" Type="bit" Nullable="false" />
+    <Property Name="checkIn" Type="datetime" Nullable="false" />
+    <Property Name="checkOut" Type="datetime" Nullable="false" />
+    <Property Name="roomType" Type="nvarchar(max)" />
+    <Property Name="numberOfBed" Type="int" Nullable="false" />
+    <Property Name="gusID" Type="int" />
+  </EntityType>
+  <EntityType Name="Departments">
+    <Key>
+      <PropertyRef Name="deptID" />
+    </Key>
+    <Property Name="deptID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="deptName" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Fedbacks">
+    <Key>
+      <PropertyRef Name="roomNum" />
+    </Key>
+    <Property Name="roomNum" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rating" Type="int" Nullable="false" />
+    <Property Name="comment" Type="nvarchar(max)" />
+    <Property Name="date" Type="datetime" Nullable="false" />
+    <Property Name="gusID" Type="int" />
+  </EntityType>
+  <EntityType Name="Gusets">
+    <Key>
+      <PropertyRef Name="gusID" />
+    </Key>
+    <Property Name="gusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="age" Type="int" Nullable="false" />
+    <Property Name="gusName" Type="nvarchar(max)" />
+    <Property Name="email" Type="nvarchar(max)" />
+    <Property Name="password" Type="nvarchar(max)" />
+    <Property Name="phone" Type="int" Nullable="false" />
+    <Property Name="SSN" Type="nvarchar(max)" />
+    <Property Name="gender" Type="nvarchar(max)" />
+    <Property Name="discount" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Payments">
+    <Key>
+      <PropertyRef Name="paymentID" />
+    </Key>
+    <Property Name="paymentID" Type="int" Nullable="false" />
+    <Property Name="paymentDate" Type="datetime" Nullable="false" />
+    <Property Name="amount" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rooms">
+    <Key>
+      <PropertyRef Name="roomNum" />
+    </Key>
+    <Property Name="roomNum" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="floorNum" Type="int" Nullable="false" />
+    <Property Name="price" Type="float" Nullable="false" />
+    <Property Name="numberOfBed" Type="int" Nullable="false" />
+    <Property Name="roomType" Type="nvarchar(max)" />
+    <Property Name="smoking" Type="bit" Nullable="false" />
+    <Property Name="petFriendly" Type="bit" Nullable="false" />
+    <Property Name="gusID" Type="int" />
+  </EntityType>
+  <EntityType Name="Staffs">
+    <Key>
+      <PropertyRef Name="staffID" />
+    </Key>
+    <Property Name="staffID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="staffName" Type="nvarchar(max)" />
+    <Property Name="gender" Type="nvarchar(max)" />
+    <Property Name="salary" Type="float" Nullable="false" />
+    <Property Name="address" Type="nvarchar(max)" />
+    <Property Name="email" Type="nvarchar(max)" />
+    <Property Name="phone" Type="nvarchar(max)" />
+    <Property Name="deptID" Type="int" />
+  </EntityType>
+  <Association Name="FK_dbo_Admins_dbo_Departments_adminID">
+    <End Role="Departments" Type="Self.Departments" Multiplicity="1" />
+    <End Role="Admins" Type="Self.Admins" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="deptID" />
+      </Principal>
+      <Dependent Role="Admins">
+        <PropertyRef Name="adminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Bookings_dbo_Gusets_gusID">
+    <End Role="Gusets" Type="Self.Gusets" Multiplicity="0..1" />
+    <End Role="Bookings" Type="Self.Bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gusets">
+        <PropertyRef Name="gusID" />
+      </Principal>
+      <Dependent Role="Bookings">
+        <PropertyRef Name="gusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Fedbacks_dbo_Gusets_gusID">
+    <End Role="Gusets" Type="Self.Gusets" Multiplicity="0..1" />
+    <End Role="Fedbacks" Type="Self.Fedbacks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gusets">
+        <PropertyRef Name="gusID" />
+      </Principal>
+      <Dependent Role="Fedbacks">
+        <PropertyRef Name="gusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Payments_dbo_Gusets_paymentID">
+    <End Role="Gusets" Type="Self.Gusets" Multiplicity="1" />
+    <End Role="Payments" Type="Self.Payments" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Gusets">
+        <PropertyRef Name="gusID" />
+      </Principal>
+      <Dependent Role="Payments">
+        <PropertyRef Name="paymentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Rooms_dbo_Gusets_gusID">
+    <End Role="Gusets" Type="Self.Gusets" Multiplicity="0..1" />
+    <End Role="Rooms" Type="Self.Rooms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gusets">
+        <PropertyRef Name="gusID" />
+      </Principal>
+      <Dependent Role="Rooms">
+        <PropertyRef Name="gusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Staffs_dbo_Departments_department_deptID">
+    <End Role="Departments" Type="Self.Departments" Multiplicity="0..1" />
+    <End Role="Staffs" Type="Self.Staffs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="deptID" />
+      </Principal>
+      <Dependent Role="Staffs">
+        <PropertyRef Name="deptID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HotelModelStoreContainer">
+    <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bookings" EntityType="Self.Bookings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fedbacks" EntityType="Self.Fedbacks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gusets" EntityType="Self.Gusets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payments" EntityType="Self.Payments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rooms" EntityType="Self.Rooms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Staffs" EntityType="Self.Staffs" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_Admins_dbo_Departments_adminID" Association="Self.FK_dbo_Admins_dbo_Departments_adminID">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="Admins" EntitySet="Admins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Bookings_dbo_Gusets_gusID" Association="Self.FK_dbo_Bookings_dbo_Gusets_gusID">
+      <End Role="Gusets" EntitySet="Gusets" />
+      <End Role="Bookings" EntitySet="Bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Fedbacks_dbo_Gusets_gusID" Association="Self.FK_dbo_Fedbacks_dbo_Gusets_gusID">
+      <End Role="Gusets" EntitySet="Gusets" />
+      <End Role="Fedbacks" EntitySet="Fedbacks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Payments_dbo_Gusets_paymentID" Association="Self.FK_dbo_Payments_dbo_Gusets_paymentID">
+      <End Role="Gusets" EntitySet="Gusets" />
+      <End Role="Payments" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Rooms_dbo_Gusets_gusID" Association="Self.FK_dbo_Rooms_dbo_Gusets_gusID">
+      <End Role="Gusets" EntitySet="Gusets" />
+      <End Role="Rooms" EntitySet="Rooms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Staffs_dbo_Departments_department_deptID" Association="Self.FK_dbo_Staffs_dbo_Departments_department_deptID">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="Staffs" EntitySet="Staffs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "loggedIn";
+}
+<br />
+
+@if (Session["adminID"] != null)
+{
+    <h3 style="color:limegreen">Hello  @Session["userName"].ToString()</h3>
+}
+<style >
+  body {
+      
+       background-color:#E8E8E8 ;
+       font-family: Calibri;
+       font-size: 18px;
+       padding:10px;
+}
+
+a {
+	color: #741c7c;
+	font-weight: 500;
+	-webkit-transition: -webkit-transform 0.2s;
+	transition: transform 0.2s;
+  display: inline-block;
+  text-decoration:none;
+  position: relative;
+}
+
+a:hover{
+	-webkit-transform: scale(0.9);
+	transform: scale(0.9);
+}
+
+a::before {
+	position: absolute;
+	top: -2px;
+	left: -7px;
+	box-sizing: content-box;
+	padding: 0 5px;
+	width: 100%;
+	height: 100%;
+	border: 2px solid #741c7c;
+	content: '';
+	opacity: 0;
+	-webkit-transition: opacity 0.2s, -webkit-transform 0.2s;
+	transition: opacity 0.2s, transform 0.2s;
+	-webkit-transform: scale(0.9);
+	transform: scale(0.9);
+}
+
+a:hover::before{
+	opacity: 1;
+	-webkit-transform: scale(1.2);
+	transform: scale(1.2);
+}
+</style>
+<div>
+    <ul>
+        <li><a href="\admin\showDept"><span>Show all departments</span></a></li>
+        <li><a href="\admin\addDept"><span>Add new departments</span></a></li>
+        <li><a href="\admin\deleteDept"><span>Delete departments</span></a></li>
+        <li><a href="\admin\editDept"><span>Edit departments</span></a></li>
+    </ul>
+</div>
+<div>
+    <ul>
+        <li><a href="\admin\showStaff"><span>Show all staffs</span></a></li>
+        <li><a href="\admin\addStaff"><span>Add staffs</span></a></li>
+        <li><a href="\admin\deleteStaff"><span>Delete staffs</span></a></li>
+        <li><a href="\admin\editStaff"><span>Edit staffs</span></a></li>
+    </ul>
+</div>
+<div>
+    <ul>
+        <li><a href="\admin\showRoom"><span>Show all rooms</span></a></li>
+        <li><a href="\admin\addRoom"><span>Add rooms</span></a></li>
+        <li><a href="\admin\deleteRoom"><span>Delete rooms</span></a></li>
+        <li><a href="\admin\editRoom"><span>Edit rooms</span></a></li>
+    </ul>
+</div>
+
